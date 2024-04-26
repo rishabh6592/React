@@ -10,18 +10,46 @@
 //   );
 // };  
 
+// learn usestate form anywhere
 
 
+// const App = () => {
+//   let age = 12
 
-const App = ()=>{
+//   const changehandler = () => {
+//     age = 15;
+//     console.log(age);
+//   }
+
+//   return(
+//     <div>
+//       <h1>home page</h1>
+//       <h2>{age}</h2>
+//       <button> change age </button>
+//     </div>
+//   );
+// };
+
+
+import { useState } from "react";
+
+
+const App = () => {
+  const [time, settime] = useState(new Date().toLocaleTimeString());
+  setInterval(() => {
+    settime(new Date().toLocaleTimeString());
+  }, 1000);
+
   return(
-    <>
-    <header><h1>unknown</h1></header>
-    <section><h1>undefine</h1></section>
-    <footer><h1>stranger  </h1></footer>
-    </>
+
+    <div>
+      <h1>{time}</h1>
+    </div>
+
   );
 };
+
+
 
 
 
