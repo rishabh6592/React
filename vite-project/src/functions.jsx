@@ -7,7 +7,7 @@ const App = () => {
     <div>
         
         <h1>hello</h1>
-        <button onClick = {() => testhandler("hello")}> call function</button>
+        <button onClick = {() => testhandler("hello")}> Call Function</button>
 
     </div>
     );
