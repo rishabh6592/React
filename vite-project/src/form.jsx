@@ -16,13 +16,13 @@ const App = () => {
         <h1>React in form</h1>
         
         <form onSubmit={submitHandler}>
-            <input name="username" type="text" placeholder="username"/>
+            <input name="username" type="text" placeholder="Username"/>
             <br/>
             <br />
-            <input name="email" type="text" placeholder="email@email.com"/>
+            <input name="email" type="text" placeholder="Email@email.com"/>
             <br />
             <br />
-            <button>submit</button>
+            <button>Submit</button>
         </form>
         
 
