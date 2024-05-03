@@ -1,99 +1,66 @@
-// import { useState } from "react";
+import { useState } from 'react';
 
-// const App = () => {
-//     const [username, setUsername] = useState("");
+const App = () =>{
+  const [username,setUsername]  = useState(" ");
+  const [gender,setGender]  = useState(" male ");
+  const [city,setCity]  = useState(" bhopal ");
+  const [desc, setDesc] = useState(" ");
+  const [accept, setAccept] = useState(true);
 
-//     const submitHandler = (e) =>{
-//         e.preeventDefault();
-//         console.log({username})
-//     };
-    
+  const submitHanlder =(e) =>{
+    e.preventDefault();
+    console.log({username ,gender, city ,desc});
+  };
 
-
-//     return (
-//     <div>
-//         <h1>two way binding</h1>
-        
-//         <form onSubmit={submitHandler}>
-//            <input type="text" name="username" placeholder="Username"/>
-//            <br />
-//            <br />
-//            <input type="radio" name="gender" />
-           
-//             <button>submit</button>
-//         </form>
-        
-
-//     </div>
-
-//     );
-    
-// };
-
-// export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const App = () => {
-    const submitHandler = (event) => {
-        event.preventDefault();
-
-        // console.log(event.target[0].value);
-        // console.log(event.target[1].value);
-
-        console.log(event.target.username.value);
-        console.log(event.target.email.value);
-        
-    };
-    
-
-
-    return (
+  return (
     <div>
-        <h1>binding</h1>
-        
-        <form onSubmit={submitHandler}>
-            <input name="username" type="text" placeholder="Username"/>
-            <br/>
-            <br />
-            <input type="radio" name="" id="" />
-            <br />
-            <input type="radio" name="" id="" />
-            <br /> <br />
-            <select name="city">
-                <option value="delhi">delhi</option>
-                <option value="mumbai">mumbai</option>
-                <option value="lucknow">lucknow</option>
-                <option value="banglore">banglore</option>
-            </select>
+      <h1> Two Way Binding </h1>
+      <form onSubmit={submitHanlder}>
+        <input 
+          onChange={ (e) => setUsername(e.target.value)}
+          value={username}
+          type="text" placeholder='username' />
+        <br /> <br />
+        <input 
+          onChange={(e) => setGender(e.target.value)} 
+          value="male"
+          checked={gender === "male" ? true : false}
+          type="radio" name='gender'/> Male
 
-            {/* <input name="email" type="text" placeholder="Email@email.com"/> */}
-            <br />
-            <br />
-            <button>Submit</button>
-        </form>
-        
+        <input
+          onChange={(e) => setGender(e.target.value)}
+          checked={gender === "female" ? true : false}
+          type="radio" name='gender' value="female" />Female
+        <br /> <br />
 
+        <select
+          defaultValue={city}
+          onChange={(e) => setCity(e.target.value)}
+        >
+          <option value="delhi">Delhi</option>
+          <option value="bhopal">Bhopal</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="kolkata">Kolkata</option>
+          <option value="pune">Raisen</option>
+        </select>
+        <br /> <br />
+
+        <textarea 
+          onChange={(e) => setDesc(e.target.value)}
+          value={desc}
+          placeholder='Write Text in this Area' 
+        />
+        <br /> <br />
+
+        <input
+          onChange={(e) => setAccept(e.target.checked)}
+          type="checkbox" />Accept
+        <br /> <br />
+
+        <input type="submit" value="submit" />
+      </form>
     </div>
-
-    );
-    
+  );
 };
 
 export default App;

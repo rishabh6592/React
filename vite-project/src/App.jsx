@@ -32,6 +32,7 @@
 
 
 import { useState } from "react";
+import Console_form from "./Console_form";
 
 
 const App = () => {
@@ -44,7 +45,11 @@ const App = () => {
 
     <div>
       <h1>{time}</h1>
+<Console_form/>
+
     </div>
+
+
 
   );
 };
