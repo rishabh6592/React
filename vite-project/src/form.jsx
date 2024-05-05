@@ -9,7 +9,7 @@ const App = () => {
         // console.log(event.target[1].value);
 
         console.log(event.target.username.value);
-        // console.log(event.target.email.value);
+        console.log(event.target.email.value);
     };
     
 
