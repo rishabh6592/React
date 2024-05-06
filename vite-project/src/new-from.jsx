@@ -32,17 +32,24 @@ const App = () => {
                 return (
                     <div key={index}>
                         <h1>{user.username}</h1>
-                        {user.city}
+                        {user.gender} <br/>
+                        {user.city} <br/>
+                        {user.desc} <br/>
+                        {user.accept}
                     </div>
                 );
             })
         ) : (
-            <h1>no data present</h1>
+            <h1>No data present</h1>
+            
         );
 
+        
+            
     return (
         <div>
-            <h1>Two Way Binding</h1>
+            <h1>two way Binding</h1>
+            {/* <h1 style={{color:"red"}}>Two Way Binding</h1> */}
             <form onSubmit={SubmitHandler}>
                 <input
                     onChange={(e) => setUsername(e.target.value)}
@@ -101,4 +108,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default App; 

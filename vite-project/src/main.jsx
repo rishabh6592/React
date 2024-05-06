@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom/client'
 // import App from './form'
 // import './index.css'
 import App from './new-from'
-// import App from './Console_form'
+import "./new-form.css"
+// import App from  "./index.css"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
