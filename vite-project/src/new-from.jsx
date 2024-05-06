@@ -44,11 +44,11 @@ const App = () => {
             
         );
 
-        
+        const x = { color:"red" }
             
     return (
         <div>
-            <h1>two way Binding</h1>
+            <h1 style={x} >two way Binding</h1>
             {/* <h1 style={{color:"red"}}>Two Way Binding</h1> */}
             <form onSubmit={SubmitHandler}>
                 <input
