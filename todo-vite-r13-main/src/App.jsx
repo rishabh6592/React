@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
+import Header from "./components/Header";
 
 const App = () => {
     const [tasks, settasks] = useState(
@@ -21,7 +22,6 @@ const App = () => {
         settitle("");
         localStorage.setItem("tasks", JSON.stringify([...tasks, newtodo]));
     };
-    console.log(tasks);
 
     const CompleteHandler = (index) => {
         console.log(index);
@@ -31,20 +31,20 @@ const App = () => {
         localStorage.setItem("tasks", JSON.stringify(copyTasks));
     };
 
+    const DeleteHandler = (id) => {
+        settasks(tasks.filter((t) => t.id != id));
+        localStorage.setItem(
+            "tasks",
+            JSON.stringify(tasks.filter((t) => t.id != id))
+        );
+    };
+
     return (
         <div className="overflow-x-hidden border-t-2 w-screen min-h-[100vh] bg-zinc-800 flex  items-center flex-col">
             {/*  */}
-            <div className="mt-[7%] w-[35%] h-[30vh] border rounded-3xl flex justify-around items-center">
-                <div className="text-yellow-100">
-                    <h1 className="text-3xl font-bold">LETS TODO</h1>
-                    <p>Keeps doing things</p>
-                </div>
-                <div className="text-3xl font-extrabold flex justify-center items-center w-[10vmax] h-[10vmax] rounded-full bg-orange-600">
-                    {tasks.filter((t) => t.completed === true).length}/
-                    {tasks.length}
-                </div>
-            </div>
+            <Header tasks={tasks} />
             {/*  */}
+
             <form
                 onSubmit={SubmitHandler}
                 className="w-[35%] flex justify-between px-5 my-[2%]"
@@ -88,13 +88,11 @@ const App = () => {
                                     </h1>
                                 </div>
                                 <div className="flex gap-3 text-2xl text-yellow-100">
-
-
                                     <i className="ri-file-edit-line"></i>
-                                    <i  className="ri-delete-bin-3-line"></i>
-
-
-                                    
+                                    <i
+                                        onClick={() => DeleteHandler(task.id)}
+                                        className="ri-delete-bin-3-line"
+                                    ></i>
                                 </div>
                             </li>
                         );
@@ -104,23 +102,6 @@ const App = () => {
                         No Pending Tasks
                     </h1>
                 )}
-
-                {/* <li className="mb-5 flex justify-between items-center border rounded-xl p-5">
-                    <div className="flex items-center">
-                        <div
-                            className={`bg-green-600 mr-4 rounded-full w-[30px] h-[30px]  border-orange-600`}
-                        ></div>
-                        <h1
-                            className={`line-through text-2xl font-extrabold text-yellow-100`}
-                        >
-                            Task 01
-                        </h1>
-                    </div>
-                    <div className="flex gap-3 text-2xl text-yellow-100">
-                        <i className="ri-file-edit-line"></i>
-                        <i className="ri-delete-bin-3-line"></i>
-                    </div>
-                </li> */}
             </ul>
         </div>
     );
