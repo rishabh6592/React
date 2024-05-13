@@ -15,6 +15,7 @@ const Create = (props) => {
         localStorage.setItem("tasks", JSON.stringify([...tasks, newtodo]));
     };
 
+
     return (
         <form
             onSubmit={SubmitHandler}
@@ -33,5 +34,6 @@ const Create = (props) => {
         </form>
     );
 };
+
 
 export default Create;
