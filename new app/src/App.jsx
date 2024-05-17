@@ -131,19 +131,17 @@
 import React, { useState } from 'react';
 
 const MyComponent = () => {
-  // State to store list of items
-  const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
+  const [items, setItems] = useState([<input type="name" placeholder='name' />, <input type="email" placeholder='email' />, <input type="mobile" placeholder='mobile no.' /> ]);
 
-  // Function to delete an item
   const deleteItem = (index) => {
     const updatedItems = [...items];
-    updatedItems.splice(index, 1);
+    updatedItems.splice(index, 2);
     setItems(updatedItems);
   };
 
   return (
     <div>
-      <h2>My Items</h2>
+      <h1>new from</h1>
       <ul>
         {items.map((item, index) => (
           <li key={index}>
