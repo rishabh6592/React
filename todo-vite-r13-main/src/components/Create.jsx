@@ -1,9 +1,9 @@
 import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { taskscontext } from "../Context/TasksContext";
 
-const Create = (props) => {
-    const tasks = props.tasks;
-    const settasks = props.settasks;
+const Create = () => {
+    const [tasks, settasks] = useContext(taskscontext);
     const [title, settitle] = useState("");
 
     const SubmitHandler = (e) => {
@@ -14,7 +14,6 @@ const Create = (props) => {
         settitle("");
         localStorage.setItem("tasks", JSON.stringify([...tasks, newtodo]));
     };
-
 
     return (
         <form
@@ -34,6 +33,5 @@ const Create = (props) => {
         </form>
     );
 };
-
 
 export default Create;

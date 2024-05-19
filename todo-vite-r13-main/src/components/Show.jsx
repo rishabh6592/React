@@ -1,9 +1,8 @@
+import { useContext } from "react";
+import { taskscontext } from "../Context/TasksContext";
 
-import React from "react";
-
-const Show = (props) => {
-    const tasks = props.tasks;
-    const settasks = props.settasks;
+const Show = () => {
+    const [tasks, settasks] = useContext(taskscontext);
 
     const CompleteHandler = (index) => {
         const copyTasks = [...tasks];
